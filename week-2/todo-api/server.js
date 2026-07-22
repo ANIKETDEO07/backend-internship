@@ -5,7 +5,15 @@ const app = express();
 const PORT = 3000;
 
 app.get("/", (req, res) => {
-    res.send("Hello, Server!");
+    res.json({
+        message: "Todo API is running"
+    });
+});
+
+app.get("/health", (req, res) => {
+    res.json({
+        status: "OK"
+    });
 });
 
 app.listen(PORT, () => {
