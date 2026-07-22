@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 
 const PORT = 3000;
+const todos = [];
 
 app.get("/", (req, res) => {
     res.json({
@@ -14,6 +15,10 @@ app.get("/health", (req, res) => {
     res.json({
         status: "OK"
     });
+});
+
+app.get("/todos", (req, res) => {
+    res.json(todos);
 });
 
 app.listen(PORT, () => {
