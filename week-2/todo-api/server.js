@@ -1,4 +1,6 @@
 const express = require("express");
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./openapi.json");
 
 const app = express();
 
@@ -102,6 +104,8 @@ app.delete("/tasks/:id", (req, res) => {
 
     res.status(204).send();
 });
+
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Start Server
 app.listen(PORT, () => {
